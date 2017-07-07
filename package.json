@@ -1,0 +1,16 @@
+{
+  "name": "catbusexp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "catbus": "^5.1.1",
+    "node-static": "^0.7.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Scott Southworth <scott.southworth@gmail.com> (https://twitter.com/DarkMarmot)",
+  "license": "ISC"
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="catbus.umd.js"></script>
+</head>
+<body>
+
+<script>
+    console.log(Catbus);
+
+    window.toPage = function(user){
+        return user ? 'dashboard' : 'login';
+    };
+
+    window.log = function(page){
+        console.log('on page:', page);
+    };
+
+    function pageStuff(msg, source, topic){
+
+        const obj = {msg: msg, source: source, topic: topic};
+        console.log('page stuff be:', obj);
+
+    }
+
+    const store = Catbus.createChild();
+
+    store.data('user');
+    store.data('page').write('login');
+    store.bus('user | *toPage | =page', window);
+
+
+    store.bus('page,user').run(pageStuff);
+
+    store.bus('page | *log', window);
+    store.data('user').write('dan');
+
+
+
+
+
+</script>
+</body>
+</html>
